@@ -1,5 +1,4 @@
-# Pokemon
-BUPT C++ Project.
+# Pokemon: BUPT C++ Project.
 
 # 宠物小精灵对战系统
 ## 题目一：宠物小精灵的加入
