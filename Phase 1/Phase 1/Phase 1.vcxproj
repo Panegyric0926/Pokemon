@@ -139,9 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Desktop\宠物小精灵对战游戏\宠物小精灵对战游戏阶段一-宠物小精灵的加入\阶段一-宠物小精灵的加入.pdf" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="battlecontroller.h" />
     <ClInclude Include="pokemon.h" />
   </ItemGroup>

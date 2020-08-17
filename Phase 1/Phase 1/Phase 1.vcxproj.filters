@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Desktop\宠物小精灵对战游戏\宠物小精灵对战游戏阶段一-宠物小精灵的加入\阶段一-宠物小精灵的加入.pdf">
-      <Filter>资源文件</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="pokemon.h">
       <Filter>源文件</Filter>
     </ClInclude>
