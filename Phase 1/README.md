@@ -147,16 +147,170 @@ Pokemon的构造函数需要一个种族的const引用作为参数，表示这个精灵属于此种族。因为精
 ## 4.1 种族初始化与精灵生成
 在tester.cpp中如下代码初始化了四个种族
 ```
-	Race<0> race1;
-	Race<1> race2;
-	Race<2> race3;
-	Race<3> race4;
+Race<0> race1;
+Race<1> race2;
+Race<2> race3;
+Race<3> race4;
 ```
 四个种族分别为小火龙（高攻击）、妙蛙种子（高血量）、杰尼龟（高防御）和波波（高速度）
 
 初始化所有种族之后即可使用Pokemon类的构造函数来生成一只精灵。构造函数的第一个参数是精灵的种族，第二个参数为精灵的名字。如果没有给出精灵的名字，则默认使用种族名。示例：
 ```
-	Pokemon pokemon1(race1, "pokemon1");
-	Pokemon pokemon2(race2);
+Pokemon pokemon1(race1, "pokemon1");
+Pokemon pokemon2(race2);
 ```
 生成精灵后会看到如下输出：
+```
+Init pokemon1 from Charmander
+Type: High Attack
+Atk: 13
+Def: 7
+MaxHp: 30
+Speed: 11
+LV: 1
+Exp: 0
+Skills:
+	Name: kick
+	Description: simple attack
+	PP: infinity
+	Name: spark
+	Description: ignore opponent's half defence
+	PP: 10
+	Name: rage
+	Description: increase attack
+	PP: 3
+	Name: fireball
+	Description: cause huge damage
+	PP: 5
+```
+## 4.2 升级
+此版本仅提供增加宠物经验值的函数（即升级函数），并未给出经验值结算方案。计划将在以后版本设计。
+
+函数Pokemon::gainExp(int count)可以给精灵增加经验值。经验值达到一定值（升级经验曲线）后即可升级。调用一次此函数可以造成多次升级。参数count应为正整数，不符合条件的count会被默认替换为1
+
+示例：使用代码` pokemon1.gainExp(10) `，可以看到如下输出
+```
+pokemon1 gains 10 exp!
+Now pokemon1 has 10 exp
+Level Up!
+pokemon1's now LV2!
+Atk: 10‐>18!
+Def: 3‐>5!
+MaxHP: 24‐>34!
+Speed: 8‐>13!
+```
+## 4.3 战斗
+如果要进行精灵之间的战斗，则需要构造一个战斗控制器BattleController，其构造函数为` BattleController(Pokemon &pokemon1, Pokemon &pokemon2, bool autoFight = true); `，即需要传递两个已经存在的精灵（可以是同一只）。第三个参数为自动战斗标识，默认自动战斗，设置为false的时候也可以手动战斗
+
+构造BattleController之后，使用BattleController::start()即可开启战斗
+
+示例代码：
+```
+	// BattleController battle(pokemon1, pokemon2);//auto fight
+	BattleController battle(pokemon1, pokemon3, false); //manual fight
+	battle.start();
+```
+自动战斗模式下，系统会随机在精灵能够使用的技能中挑选一个释放。自动战斗产生的输出如下：
+```
+pokemon1 VS pokemon2!
+Battle Start!
+pokemon1 uses kick!
+pokemon2 takes 13 damage!
+pokemon2's HP becomes 24
+pokemon2 uses kick!
+pokemon1 takes 10 damage!
+pokemon1's HP becomes 28
+pokemon1 uses kick!
+pokemon2 takes 12 damage!
+pokemon2's HP becomes 12
+pokemon1 uses kick!
+pokemon2 takes 10 damage!
+pokemon2's HP becomes 2
+pokemon2 uses kick!
+pokemon1 takes 10 damage!
+pokemon1's HP becomes 18
+pokemon1 uses kick!
+pokemon2 takes 12 damage!
+pokemon2 is down!
+pokemon1 won!
+```
+手动战斗模式下，玩家可以选择每一步释放哪个技能。关于技能的获取将在下文中提到。手动战斗可以获得如下输出：
+```
+pokemon1 VS pokemon2!
+Battle Start!
+
+pokemon1, your turn!
+Choose a skill to attack!
+	1: kick simple		attack
+	2: spark(10/10)		ignore opponent's half defence
+	3: rage( 3/ 3)		increase attack
+	4: fireball( 5/ 5)	cause huge damage
+Please input a number: 3
+
+pokemon1 uses rage!
+pokemon1's Attack +13
+pokemon1's Attack becomes 121
+
+pokemon2, your turn!
+Choose a skill to attack!
+	1: kick simple		attack
+	2: spark(10/10)		ignore opponent's half defence
+	3: rage( 3/ 3)		increase attack
+	4: fireball( 5/ 5)	cause huge damage
+Please input a number: 4
+
+pokemon2 uses razor leaf!
+pokemon1 takes 82 damage!
+pokemon1's HP becomes 48
+
+pokemon1, your turn!
+Choose a skill to attack!
+	1: kick simple		attack
+	2: spark(10/10)		ignore opponent's half defence
+	3: rage( 3/ 3)		increase attack
+	4: fireball( 5/ 5)	cause huge damage
+Please input a number: 4
+
+pokemon1 uses fireball!
+pokemon2 takes 157 damage!
+pokemon2's HP becomes 67
+
+pokemon2, your turn!
+Choose a skill to attack!
+	1: kick simple		attack
+	2: spark(10/10)		ignore opponent's half defence
+	3: rage( 3/ 3)		increase attack
+	4: fireball( 5/ 5)	cause huge damage
+Please input a number: 3
+
+pokemon2 uses life drain!
+pokemon2 restores 46HP!
+pokemon2's HP becomes 113
+
+pokemon1 takes 46 damage!
+pokemon1's HP becomes 2
+pokemon1, your turn!
+Choose a skill to attack!
+	1: kick simple		attack
+	2: spark(10/10)		ignore opponent's half defence
+	3: rage( 3/ 3)		increase attack
+	4: fireball( 5/ 5)	cause huge damage
+Please input a number: 4
+
+pokemon1 uses fireball!
+pokemon2 takes 152 damage!
+pokemon2 is down!
+
+pokemon1 won!
+
+请按任意键继续. . .
+```
+可以看到，精灵的技能有释放次数（PP值），每次释放都会减少此技能的PP值。精灵的第一个技能kick为普通攻击，可以无限次释放。技能后面跟着技能描述，玩家可以根据技能描述来选择释放技能。
+
+玩家需要输入一个数字来释放技能。如果出现错误输入则默认释放普通攻击。当一个精灵的血量HP为0时，另一个精灵获得胜利。
+
+# 5、游戏测试
+生成小精灵
+获取经验与升级
+战斗开始
+战斗结束
