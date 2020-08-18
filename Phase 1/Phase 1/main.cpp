@@ -10,6 +10,8 @@ int main()
 	cout << "init pokemon races ...\n";
 	Race<0> race1;
 	Race<1> race2;
+	Race<2> race3;
+	Race<3> race4;
 
 	Pokemon pokemon1(race1, "pokemon1");
 	Pokemon pokemon2(race2, "pokemon2");
