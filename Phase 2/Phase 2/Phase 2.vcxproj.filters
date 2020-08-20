@@ -14,4 +14,57 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Server\battlecontroller.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\endpoint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\mystringfunc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\pokemon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Server\battlecontroller.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\endpoint.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\mystringfunc.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\netconfig.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\pokemon.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\server.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\sqlite3.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Server\sqlite3.dll">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Server\sqlite3.lib">
+      <Filter>源文件</Filter>
+    </Library>
+  </ItemGroup>
 </Project>
