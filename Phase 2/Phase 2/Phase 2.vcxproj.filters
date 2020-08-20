@@ -54,13 +54,13 @@
     <ClCompile Include="Client\logondlg.cpp">
       <Filter>源文件\client</Filter>
     </ClCompile>
-    <ClCompile Include="Client\main.cpp">
-      <Filter>源文件\client</Filter>
-    </ClCompile>
     <ClCompile Include="Client\mainwindow.cpp">
       <Filter>源文件\client</Filter>
     </ClCompile>
     <ClCompile Include="Client\pokemondlg.cpp">
+      <Filter>源文件\client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\main.cpp">
       <Filter>源文件\client</Filter>
     </ClCompile>
   </ItemGroup>
