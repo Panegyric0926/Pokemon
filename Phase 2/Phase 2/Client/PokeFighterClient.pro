@@ -38,12 +38,11 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     logondlg.ui \
     pokemondlg.ui \
-    changepassworddlg.ui
 
 RESOURCES += \
+    meida.qrc \
     qss.qrc \
     img.qrc \
-    media.qrc
 
 QT += network
 QT += multimedia
