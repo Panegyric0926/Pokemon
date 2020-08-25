@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8b5065a4-0960-498f-a585-79f474345c1a}</ProjectGuid>
-    <RootNamespace>Phase2</RootNamespace>
+    <ProjectGuid>{61e39191-68c4-4d84-be16-dcfd1c66d09c}</ProjectGuid>
+    <RootNamespace>Server</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,57 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Client\authentication.cpp" />
-    <ClCompile Include="Client\logondlg.cpp" />
-    <ClCompile Include="Client\main.cpp" />
-    <ClCompile Include="Client\mainwindow.cpp" />
-    <ClCompile Include="Client\pokemondlg.cpp" />
-    <ClCompile Include="Server\battlecontroller.cpp" />
-    <ClCompile Include="Server\endpoint.cpp" />
-    <ClCompile Include="Server\main.cpp" />
-    <ClCompile Include="Server\mystringfunc.cpp" />
-    <ClCompile Include="Server\pokemon.cpp" />
-    <ClCompile Include="Server\server.cpp" />
+    <ClCompile Include="..\..\battlecontroller.cpp" />
+    <ClCompile Include="..\..\endpoint.cpp" />
+    <ClCompile Include="..\..\main.cpp" />
+    <ClCompile Include="..\..\mystringfunc.cpp" />
+    <ClCompile Include="..\..\pokemon.cpp" />
+    <ClCompile Include="..\..\server.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Client\authentication.h" />
-    <ClInclude Include="Client\logondlg.h" />
-    <ClInclude Include="Client\mainwindow.h" />
-    <ClInclude Include="Client\netconfig.h" />
-    <ClInclude Include="Client\pokemondlg.h" />
-    <ClInclude Include="Server\battlecontroller.h" />
-    <ClInclude Include="Server\endpoint.h" />
-    <ClInclude Include="Server\mystringfunc.h" />
-    <ClInclude Include="Server\netconfig.h" />
-    <ClInclude Include="Server\pokemon.h" />
-    <ClInclude Include="Server\server.h" />
-    <ClInclude Include="Server\sqlite3.h" />
+    <ClInclude Include="..\..\battlecontroller.h" />
+    <ClInclude Include="..\..\endpoint.h" />
+    <ClInclude Include="..\..\mystringfunc.h" />
+    <ClInclude Include="..\..\netconfig.h" />
+    <ClInclude Include="..\..\pokemon.h" />
+    <ClInclude Include="..\..\server.h" />
+    <ClInclude Include="..\..\sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Client\img.qrc" />
-    <None Include="Client\logondlg.ui" />
-    <None Include="Client\mainwindow.ui" />
-    <None Include="Client\meida.qrc" />
-    <None Include="Client\PokeFighterClient.pro" />
-    <None Include="Client\pokemondlg.ui" />
-    <None Include="Client\qss.qrc" />
-    <None Include="Client\qss\main.qss" />
-    <None Include="Server\sqlite3.dll" />
+    <None Include="..\..\sqlite3.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Server\sqlite3.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="Client\media\op.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Client\img\bulbasaur.png" />
-    <Image Include="Client\img\charmander.png" />
-    <Image Include="Client\img\exit.png" />
-    <Image Include="Client\img\pidgey.png" />
-    <Image Include="Client\img\play.png" />
-    <Image Include="Client\img\squirtle.png" />
-    <Image Include="Client\img\start.jpg" />
+    <Library Include="..\..\sqlite3.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
