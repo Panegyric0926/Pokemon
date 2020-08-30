@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+ï»¿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QFile>
 #include <QTextStream>
@@ -12,49 +12,49 @@ ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
 
-	setWindowTitle(tr("³èÎïĞ¡¾«Áé¶ÔÕ½³ÌĞò¿Í»§¶Ë"));
+	setWindowTitle(tr("å® ç‰©å°ç²¾çµå¯¹æˆ˜ç¨‹åºå®¢æˆ·ç«¯"));
 
-	// start layout
-	lbStartTitle = new QLabel(tr("³èÎïĞ¡¾«Áé¶ÔÕ½³ÌĞò"), this);
-	lbStartTitle->setObjectName("lbStartTitle"); // for stylesheet
-	btnPlay = new QPushButton(tr("¿ªÊ¼ÓÎÏ·"), this);
-	btnPlay->setObjectName("btnPlay");
-	btnExit = new QPushButton(tr("ÍË³ö"), this);
-	btnExit->setObjectName("btnExit");
+    // start layout
+    lbStartTitle = new QLabel(tr("å® ç‰©å°ç²¾çµå¯¹æˆ˜ç³»ç»Ÿ"), this);
+    lbStartTitle->setObjectName("lbStartTitle"); // for stylesheet
+    btnPlay = new QPushButton(tr("å¼€å§‹æ¸¸æˆ"), this);
+    btnPlay->setObjectName("btnPlay");
+    btnExit = new QPushButton(tr("é€€å‡º"), this);
+    btnExit->setObjectName("btnExit");
 
 	// login layout
-	lbLoginLabel = new QLabel(tr("µÇÂ¼"), this);
+	lbLoginLabel = new QLabel(tr("ç™»å½•"), this);
 	lbLoginLabel->setObjectName("lbLoginLabel");
 	leUsername = new QLineEdit(this);
 	leUsername->setObjectName("leUsername");
-	leUsername->setPlaceholderText(tr("ÇëÊäÈëÓÃ»§Ãû"));
+	leUsername->setPlaceholderText(tr("è¯·è¾“å…¥ç”¨æˆ·å"));
 	lePassword = new QLineEdit(this);
 	lePassword->setObjectName("lePassword");
-	lePassword->setPlaceholderText(tr("ÇëÊäÈëÃÜÂë"));
+	lePassword->setPlaceholderText(tr("è¯·è¾“å…¥å¯†ç "));
 	lePassword->setEchoMode(QLineEdit::Password);
-	btnLogin = new QPushButton(tr("µÇÂ¼"), this);
+	btnLogin = new QPushButton(tr("ç™»å½•"), this);
 	btnLogin->setObjectName("btnLogin");
-	btnLogon = new QPushButton(tr("×¢²á"), this);
+	btnLogon = new QPushButton(tr("æ³¨å†Œ"), this);
 	btnLogon->setObjectName("btnLogon");
-	btnBack = new QPushButton(tr("·µ»Ø"), this);
+	btnBack = new QPushButton(tr("è¿”å›"), this);
 	btnBack->setObjectName("btnBack");
 
 	// main layout
-	btnLogout = new QPushButton(tr("ÍË³öµÇÂ¼"), this);
+	btnLogout = new QPushButton(tr("é€€å‡ºç™»å½•"), this);
 	btnLogout->setObjectName("btnLogout");
-	btnShowPokemonList = new QPushButton(tr("²é¿´¾«Áé"), this);
+	btnShowPokemonList = new QPushButton(tr("æŸ¥çœ‹ç²¾çµ"), this);
 	btnShowPokemonList->setObjectName("btnShowPokemonList");
-	btnDisplayAllPlayer = new QPushButton(tr("²é¿´ËùÓĞÍæ¼Ò"), this);
+	btnDisplayAllPlayer = new QPushButton(tr("æŸ¥çœ‹æ‰€æœ‰ç©å®¶"), this);
 	btnDisplayAllPlayer->setObjectName("btnDisplayAllPlayer");
-	btnChangePassword = new QPushButton(tr("ĞŞ¸ÄÃÜÂë"), this);
+	btnChangePassword = new QPushButton(tr("ä¿®æ”¹å¯†ç "), this);
 	btnChangePassword->setObjectName("btnChangePassword");
 
 	// change password layout
 	leNewPassword = new QLineEdit(this);
 	leNewPassword->setObjectName("leNewPassword");
-	btnOK = new QPushButton(tr("Ìá½»"), this);
+	btnOK = new QPushButton(tr("æäº¤"), this);
 	btnOK->setObjectName("btnOK");
-	leNewPassword->setPlaceholderText(tr("ÇëÊäÈëĞÂÃÜÂë"));
+	leNewPassword->setPlaceholderText(tr("è¯·è¾“å…¥æ–°å¯†ç "));
 	leNewPassword->setEchoMode(QLineEdit::Password);
 
 	// pokemon table and player table
@@ -121,12 +121,12 @@ ui(new Ui::MainWindow)
 	connect(btnOK, &QPushButton::clicked, this, [this] {
 		if (!isValidPassword(lePassword->text()))
 		{
-			QMessageBox::warning(this, tr("´íÎó"), tr("¾ÉÃÜÂë¸ñÊ½´íÎó"));
+			QMessageBox::warning(this, tr("é”™è¯¯"), tr("æ—§å¯†ç æ ¼å¼é”™è¯¯"));
 			lePassword->clear();
 		}
 		else if (!isValidPassword(leNewPassword->text()))
 		{
-			QMessageBox::warning(this, tr("´íÎó"), tr("ĞÂÃÜÂë¸ñÊ½´íÎó"));
+			QMessageBox::warning(this, tr("é”™è¯¯"), tr("æ–°å¯†ç æ ¼å¼é”™è¯¯"));
 			leNewPassword->clear();
 		}
 		else
@@ -303,14 +303,14 @@ void MainWindow::login()
 {
 	if (!isValidUsername(leUsername->text()))
 	{
-		QMessageBox::warning(this, tr("´íÎó"), tr("ÓÃ»§Ãû²»ºÏ·¨"));
+		QMessageBox::warning(this, tr("é”™è¯¯"), tr("ç”¨æˆ·åä¸åˆæ³•"));
 		leUsername->clear();
 		lePassword->clear();
 		return;
 	}
 	if (!isValidPassword(lePassword->text()))
 	{
-		QMessageBox::warning(this, tr("´íÎó"), tr("ÃÜÂë²»ºÏ·¨"));
+		QMessageBox::warning(this, tr("é”™è¯¯"), tr("å¯†ç ä¸åˆæ³•"));
 		lePassword->clear();
 		return;
 	}
@@ -326,7 +326,7 @@ void MainWindow::login()
 	if (client->write(msg.toLocal8Bit(), BUF_LENGTH) == -1)
 	{
 		// error
-		QMessageBox::warning(this, tr("´íÎó"), tr("·şÎñÆ÷´íÎó"));
+		QMessageBox::warning(this, tr("é”™è¯¯"), tr("æœåŠ¡å™¨é”™è¯¯"));
 		btnLogin->setDisabled(false);
 	}
 	lePassword->clear();
@@ -345,11 +345,11 @@ void MainWindow::getServerMsg()
 	{
 		if (msg != "Accept.\n")
 		{
-			QMessageBox::warning(this, tr("´íÎó"), tr("ĞŞ¸Ä¾«ÁéÃû×ÖÊ§°Ü"));
+			QMessageBox::warning(this, tr("é”™è¯¯"), tr("ä¿®æ”¹ç²¾çµåå­—å¤±è´¥"));
 		}
 		else
 		{
-			QMessageBox::information(this, tr("¾«ÁéĞŞ¸ÄÃû×Ö"), tr("¾«ÁéÃû×ÖÒÑ¸üĞÂ"));
+			QMessageBox::information(this, tr("ç²¾çµä¿®æ”¹åå­—"), tr("ç²¾çµåå­—å·²æ›´æ–°"));
 		}
 
 		changingPokemonName = false;
@@ -365,7 +365,7 @@ void MainWindow::getServerMsg()
 		if (port == 0)
 		{
 			// login failed
-			QMessageBox::warning(this, tr("´íÎó"), msg);
+			QMessageBox::warning(this, tr("é”™è¯¯"), msg);
 		}
 		else
 		{
@@ -388,7 +388,7 @@ void MainWindow::getServerMsg()
 
 		table->setRowCount(players.size() - 2);
 		table->setColumnCount(4); // id - username - online - viewPokemon
-		table->setHorizontalHeaderLabels({ tr("Íæ¼ÒID"), tr("ÓÃ»§Ãû"), tr("ÔÚÏßÇé¿ö"), tr("²Ù×÷") });
+		table->setHorizontalHeaderLabels({ tr("ç©å®¶ID"), tr("ç”¨æˆ·å"), tr("åœ¨çº¿æƒ…å†µ"), tr("æ“ä½œ") });
         //table->verticalHeader()->hide();
         //table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
         //table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
@@ -411,12 +411,12 @@ void MainWindow::getServerMsg()
 			if (detail[2] == '0')
 				t->setBackgroundColor(QColor("#eff0f1"));
 			table->setItem(tableRowIndex, 1, t);
-			t = new QTableWidgetItem(detail[2] == '1' ? tr("ÔÚÏß") : tr("ÀëÏß"));
+			t = new QTableWidgetItem(detail[2] == '1' ? tr("åœ¨çº¿") : tr("ç¦»çº¿"));
 			t->setFlags(t->flags() ^ Qt::ItemIsEnabled);
 			if (detail[2] == '0')
 				t->setBackgroundColor(QColor("#eff0f1"));
 			table->setItem(tableRowIndex, 2, t);
-			auto btn = new QPushButton(tr("²é¿´Ğ¡¾«Áé"), this);
+			auto btn = new QPushButton(tr("æŸ¥çœ‹å°ç²¾çµ"), this);
 			connect(btn, &QPushButton::clicked, this, [this, detail] {
 				changeState(POKEMON_TABLE);
 				currentPlayerID = detail[0].toInt();
@@ -437,7 +437,7 @@ void MainWindow::getServerMsg()
 
 			table->setRowCount(pokemons.size() - 1);
 			table->setColumnCount(5);
-			table->setHorizontalHeaderLabels({ tr("¾«ÁéID"), tr("Ãû×Ö"), tr("ÖÖ×å"), tr("µÈ¼¶"), tr("²Ù×÷") });
+			table->setHorizontalHeaderLabels({ tr("ç²¾çµID"), tr("åå­—"), tr("ç§æ—"), tr("ç­‰çº§"), tr("æ“ä½œ") });
             //table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
             //table->verticalHeader()->hide();
 			for (int i = 0; i < pokemons.size() - 1; ++i)
@@ -448,7 +448,7 @@ void MainWindow::getServerMsg()
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
 				table->setItem(i, 0, t);
 				t = new QTableWidgetItem(detail[1]);
-				t->setToolTip(tr("Ë«»÷ÒÔ¸ü¸Ä¾«ÁéÃû³Æ"));
+				t->setToolTip(tr("åŒå‡»ä»¥æ›´æ”¹ç²¾çµåç§°"));
 				table->setItem(i, 1, t);
 				t = new QTableWidgetItem(detail[2]);
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
@@ -456,7 +456,7 @@ void MainWindow::getServerMsg()
 				t = new QTableWidgetItem(detail[3]);
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
 				table->setItem(i, 3, t);
-				auto btn = new QPushButton(tr("²é¿´ÏêÇé"), this);
+				auto btn = new QPushButton(tr("æŸ¥çœ‹è¯¦æƒ…"), this);
 				connect(btn, &QPushButton::clicked, this, [this, detail] {
 					QString str = "getPokemon ";
 					str += detail[0];
@@ -496,12 +496,12 @@ void MainWindow::getServerMsg()
 	case CHANGE_PSW:
 		if (msg == "Accept.\n")
 		{
-			QMessageBox::information(this, tr("ÃÜÂëÖØÖÃ"), tr("ÃÜÂëÖØÖÃ³É¹¦"));
+			QMessageBox::information(this, tr("å¯†ç é‡ç½®"), tr("å¯†ç é‡ç½®æˆåŠŸ"));
 			changeState(MAIN);
 		}
 		else
 		{
-			QMessageBox::warning(this, tr("´íÎó"), msg);
+			QMessageBox::warning(this, tr("é”™è¯¯"), msg);
 		}
 		break;
 	default:

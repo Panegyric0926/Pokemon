@@ -1,4 +1,4 @@
-#include "logondlg.h"
+ï»¿#include "logondlg.h"
 #include "ui_logondlg.h"
 #include <QGridLayout>
 #include <QHostAddress>
@@ -10,19 +10,19 @@ ui(new Ui::LogonDlg)
 {
 	ui->setupUi(this);
 
-	setWindowTitle(tr("ĞÂÓÃ»§×¢²á"));
+    setWindowTitle(tr("æ–°ç”¨æˆ·æ³¨å†Œ"));
 
 	// setup ui
 	leUsername = new QLineEdit(this);
 	lePassword = new QLineEdit(this);
 	leRepeat = new QLineEdit(this);
-	btnOK = new QPushButton(tr("È·ÈÏ"), this);
-	btnCancel = new QPushButton(tr("È¡Ïû"), this);
-	leUsername->setPlaceholderText(tr("ÇëÊäÈëÓÃ»§Ãû"));
-	leUsername->setToolTip(tr("²»ÄÜ°üº¬¿Õ°××Ö·û£¬³¤¶ÈÎª6-30Î»"));
-	lePassword->setPlaceholderText(tr("ÇëÊäÈëÃÜÂë"));
-	lePassword->setToolTip(tr("ÓÉ×ÖÄ¸¡¢Êı×Ö¡¢ÏÂ»®Ïß×é³É£¬³¤¶ÈÎª6-30Î»"));
-	leRepeat->setPlaceholderText(tr("ÇëÔÙ´ÎÊäÈëÃÜÂëÒÔÈ·ÈÏ"));
+	btnOK = new QPushButton(tr("ç¡®è®¤"), this);
+	btnCancel = new QPushButton(tr("å–æ¶ˆ"), this);
+	leUsername->setPlaceholderText(tr("è¯·è¾“å…¥ç”¨æˆ·å"));
+	leUsername->setToolTip(tr("ä¸èƒ½åŒ…å«ç©ºç™½å­—ç¬¦ï¼Œé•¿åº¦ä¸º6-30ä½"));
+	lePassword->setPlaceholderText(tr("è¯·è¾“å…¥å¯†ç "));
+	lePassword->setToolTip(tr("ç”±å­—æ¯ã€æ•°å­—ã€ä¸‹åˆ’çº¿ç»„æˆï¼Œé•¿åº¦ä¸º6-30ä½"));
+	leRepeat->setPlaceholderText(tr("è¯·å†æ¬¡è¾“å…¥å¯†ç ä»¥ç¡®è®¤"));
 	lePassword->setEchoMode(QLineEdit::Password);
 	leRepeat->setEchoMode(QLineEdit::Password);
 
@@ -63,17 +63,17 @@ void LogonDlg::logon()
 {
 	if (!isValidUsername(leUsername->text()))
 	{
-		QMessageBox::warning(this, tr("²»ºÏ·¨µÄÓÃ»§Ãû"), tr("ÕËºÅ±ØĞèÓÉ×ÖÄ¸¡¢Êı×Ö¡¢ÏÂ»®Ïß×é³ÉÇÒ³¤¶È½éÓÚ6-30"));
+		QMessageBox::warning(this, tr("ä¸åˆæ³•çš„ç”¨æˆ·å"), tr("è´¦å·å¿…éœ€ç”±å­—æ¯ã€æ•°å­—ã€ä¸‹åˆ’çº¿ç»„æˆä¸”é•¿åº¦ä»‹äº6-30"));
 		return;
 	}
 	else if (!isValidPassword(lePassword->text()))
 	{
-		QMessageBox::warning(this, tr("²»ºÏ·¨µÄÃÜÂë"), tr("ÃÜÂë±ØĞèÓÉ×ÖÄ¸¡¢Êı×Ö¡¢ÏÂ»®Ïß×é³ÉÇÒ³¤¶È½éÓÚ6-30"));
+		QMessageBox::warning(this, tr("ä¸åˆæ³•çš„å¯†ç "), tr("å¯†ç å¿…éœ€ç”±å­—æ¯ã€æ•°å­—ã€ä¸‹åˆ’çº¿ç»„æˆä¸”é•¿åº¦ä»‹äº6-30"));
 		return;
 	}
 	else if (lePassword->text() != leRepeat->text())
 	{
-		QMessageBox::warning(this, tr("´íÎó"), tr("Á½´ÎÊäÈëÃÜÂë²»Ò»ÖÂ"));
+		QMessageBox::warning(this, tr("é”™è¯¯"), tr("ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ä¸€è‡´"));
 		return;
 	}
 	client->connectToHost(QHostAddress("127.0.0.1"), 7500);
@@ -89,7 +89,7 @@ void LogonDlg::logon()
 	if (client->write(msg.toLocal8Bit(), BUF_LENGTH) == -1)
 	{
 		// error occur
-		QMessageBox::warning(this, tr("´íÎó"), tr("·şÎñÆ÷³ö´í"));
+		QMessageBox::warning(this, tr("é”™è¯¯"), tr("æœåŠ¡å™¨å‡ºé”™"));
 		btnOK->setDisabled(false);
 	}
 }
@@ -103,12 +103,12 @@ void LogonDlg::readServerMsg()
 
 	if (QString(ret) == "Accept.\n")
 	{
-		QMessageBox::information(this, tr("×¢²á³É¹¦"), tr("×¢²á³É¹¦"));
+		QMessageBox::information(this, tr("æ³¨å†ŒæˆåŠŸ"), tr("æ³¨å†ŒæˆåŠŸ"));
 		accept(); // back to mainwindow
 	}
 	else
 	{
-		QMessageBox::warning(this, tr("´íÎó"), QString::fromLocal8Bit(ret));
+		QMessageBox::warning(this, tr("é”™è¯¯"), QString::fromLocal8Bit(ret));
 	}
 }
 

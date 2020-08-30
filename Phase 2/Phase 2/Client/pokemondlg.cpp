@@ -1,4 +1,4 @@
-#include "pokemondlg.h"
+ï»¿#include "pokemondlg.h"
 #include "ui_pokemondlg.h"
 #include <QVBoxLayout>
 
@@ -8,11 +8,11 @@ ui(new Ui::PokemonDlg)
 	ui->setupUi(this);
 
 	// ui
-	setWindowTitle(tr("¾«ÁéÏêÇé"));
+	setWindowTitle(tr("ç²¾çµè¯¦æƒ…"));
 	table = new QTableWidget(this);
 	table->setColumnCount(1);
 	table->setRowCount(9);
-    table->setVerticalHeaderLabels({ tr("¾«ÁéID"), tr("Ãû×Ö"), tr("ÖÖ×å"), tr("¹¥»÷Á¦"), tr("·ÀÓùÁ¦"), tr("ÉúÃüÖµ"), tr("ËÙ¶È"), tr("µÈ¼¶"), tr("¾­Ñé") });
+    table->setVerticalHeaderLabels({ tr("ç²¾çµID"), tr("åå­—"), tr("ç§æ—"), tr("æ”»å‡»åŠ›"), tr("é˜²å¾¡åŠ›"), tr("ç”Ÿå‘½å€¼"), tr("é€Ÿåº¦"), tr("ç­‰çº§"), tr("ç»éªŒ") });
     //table->horizontalHeader()->hide();
     //table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -33,7 +33,7 @@ ui(new Ui::PokemonDlg)
 			if (myPokemonTable)
 			{
 				// can just change my pokemon's name
-				t->setToolTip(tr("Ë«»÷ÒÔ¸ü¸Ä¾«ÁéÃû³Æ"));
+				t->setToolTip(tr("åŒå‡»ä»¥æ›´æ”¹ç²¾çµåç§°"));
 			}
 			else
 			{
@@ -51,25 +51,25 @@ ui(new Ui::PokemonDlg)
 	// img
 	lbImg = new QLabel(this);
 	// if (details[2] == "Bulbasaur")
-	if (details[2] == "ÃîÍÜÖÖ×Ó")
+	if (details[2] == "å¦™è›™ç§å­")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/bulbasaur.png"));
 		setWindowIcon(QIcon(":/img/img/bulbasaur.png"));
 	}
 	// else if (details[2] == "Charmander")
-	else if (details[2] == "Ð¡»ðÁú")
+	else if (details[2] == "å°ç«é¾™")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/charmander.png"));
 		setWindowIcon(QIcon(":/img/img/charmander.png"));
 	}
 	// else if (details[2] == "Squirtle")
-	else if (details[2] == "½ÜÄá¹ê")
+	else if (details[2] == "æ°å°¼é¾Ÿ")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/squirtle.png"));
 		setWindowIcon(QIcon(":/img/img/squirtle.png"));
 	}
 	// else if (details[2] == "Pidgey")
-	else if (details[2] == "²¨²¨")
+	else if (details[2] == "æ³¢æ³¢")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/pidgey.png"));
 		setWindowIcon(QIcon(":/img/img/pidgey.png"));
