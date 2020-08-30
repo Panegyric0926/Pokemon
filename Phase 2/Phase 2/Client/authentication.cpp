@@ -1,4 +1,4 @@
-#include "authentication.h"
+﻿#include "authentication.h"
 
 bool isValidPassword(const QString& str)
 {
