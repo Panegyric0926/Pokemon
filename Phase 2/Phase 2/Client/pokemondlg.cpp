@@ -12,9 +12,9 @@ ui(new Ui::PokemonDlg)
 	table = new QTableWidget(this);
 	table->setColumnCount(1);
 	table->setRowCount(9);
-	table->setVerticalHeaderLabels({ tr("精灵ID"), tr("名字"), tr("种族"), tr("攻击力"), tr("防御力"), tr("生命值"), tr("速度"), tr("等级"), tr("经验") });
-	table->horizontalHeader()->hide();
-	table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    table->setVerticalHeaderLabels({ tr("精灵ID"), tr("名字"), tr("种族"), tr("攻击力"), tr("防御力"), tr("生命值"), tr("速度"), tr("等级"), tr("经验") });
+    //table->horizontalHeader()->hide();
+    //table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 	// data
 	auto details = detail.split(' ');
