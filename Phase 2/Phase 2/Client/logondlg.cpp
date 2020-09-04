@@ -10,19 +10,19 @@ ui(new Ui::LogonDlg)
 {
 	ui->setupUi(this);
 
-    setWindowTitle(tr("新用户注册"));
+    setWindowTitle(tr(u8"新用户注册"));
 
 	// setup ui
 	leUsername = new QLineEdit(this);
 	lePassword = new QLineEdit(this);
 	leRepeat = new QLineEdit(this);
-	btnOK = new QPushButton(tr("确认"), this);
-	btnCancel = new QPushButton(tr("取消"), this);
-	leUsername->setPlaceholderText(tr("请输入用户名"));
-	leUsername->setToolTip(tr("不能包含空白字符，长度为6-30位"));
-	lePassword->setPlaceholderText(tr("请输入密码"));
-	lePassword->setToolTip(tr("由字母、数字、下划线组成，长度为6-30位"));
-	leRepeat->setPlaceholderText(tr("请再次输入密码以确认"));
+    btnOK = new QPushButton(tr(u8"确认"), this);
+    btnCancel = new QPushButton(tr(u8"取消"), this);
+    leUsername->setPlaceholderText(tr(u8"请输入用户名"));
+    leUsername->setToolTip(tr(u8"不能包含空白字符，长度为6-30位"));
+    lePassword->setPlaceholderText(tr(u8"请输入密码"));
+    lePassword->setToolTip(tr(u8"由字母、数字、下划线组成，长度为6-30位"));
+    leRepeat->setPlaceholderText(tr(u8"请再次输入密码以确认"));
 	lePassword->setEchoMode(QLineEdit::Password);
 	leRepeat->setEchoMode(QLineEdit::Password);
 
@@ -63,17 +63,17 @@ void LogonDlg::logon()
 {
 	if (!isValidUsername(leUsername->text()))
 	{
-		QMessageBox::warning(this, tr("不合法的用户名"), tr("账号必需由字母、数字、下划线组成且长度介于6-30"));
+        QMessageBox::warning(this, tr(u8"不合法的用户名"), tr(u8"账号必需由字母、数字、下划线组成且长度介于6-30"));
 		return;
 	}
 	else if (!isValidPassword(lePassword->text()))
 	{
-		QMessageBox::warning(this, tr("不合法的密码"), tr("密码必需由字母、数字、下划线组成且长度介于6-30"));
+        QMessageBox::warning(this, tr(u8"不合法的密码"), tr(u8"密码必需由字母、数字、下划线组成且长度介于6-30"));
 		return;
 	}
 	else if (lePassword->text() != leRepeat->text())
 	{
-		QMessageBox::warning(this, tr("错误"), tr("两次输入密码不一致"));
+        QMessageBox::warning(this, tr(u8"错误"), tr(u8"两次输入密码不一致"));
 		return;
 	}
 	client->connectToHost(QHostAddress("127.0.0.1"), 7500);
@@ -89,7 +89,7 @@ void LogonDlg::logon()
 	if (client->write(msg.toLocal8Bit(), BUF_LENGTH) == -1)
 	{
 		// error occur
-		QMessageBox::warning(this, tr("错误"), tr("服务器出错"));
+        QMessageBox::warning(this, tr(u8"错误"), tr(u8"服务器出错"));
 		btnOK->setDisabled(false);
 	}
 }
@@ -103,12 +103,12 @@ void LogonDlg::readServerMsg()
 
 	if (QString(ret) == "Accept.\n")
 	{
-		QMessageBox::information(this, tr("注册成功"), tr("注册成功"));
+        QMessageBox::information(this, tr(u8"注册成功"), tr(u8"注册成功"));
 		accept(); // back to mainwindow
 	}
 	else
 	{
-		QMessageBox::warning(this, tr("错误"), QString::fromLocal8Bit(ret));
+        QMessageBox::warning(this, tr(u8"错误"), QString::fromLocal8Bit(ret));
 	}
 }
 

@@ -1,5 +1,5 @@
-*{
-	font-family: "Î¢ÈíÑÅºÚ"
+ï»¿*{
+        font-family: "KaiTi"
 }
 
 
@@ -15,7 +15,7 @@
 	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
 																		stop: 0 #f6f7fa, stop: 1 #dadbde);
 	min-width: 80px;
-	font-size: 20px;
+        font-size: 30px;
 }
 
 #btnPlay:pressed, #btnExit:pressed, #btnLogin:pressed, #btnLogon:pressed, #btnBack:pressed , #btnLogout:pressed, #btnShowPokemonList:pressed, #btnDisplayAllPlayer:pressed, #btnChangePassword:pressed, #btnOK:pressed{
@@ -34,6 +34,14 @@
 #lbStartTitle, #lbLoginLabel{
 	font-size: 30pt;
 	font-weight: 75;
+}
+
+#lbStartTitle{
+    width: 400px;
+    height: 80px;
+    background: white;
+    selection-background-color: darkgray;
+    color: black;
 }
 
 #leUsername, #lePassword, #leNewPassword {

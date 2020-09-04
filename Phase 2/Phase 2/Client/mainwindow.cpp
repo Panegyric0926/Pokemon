@@ -12,49 +12,49 @@ ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
 
-	setWindowTitle(tr("宠物小精灵对战程序客户端"));
+    setWindowTitle(tr(u8"宠物小精灵对战程序客户端"));
 
     // start layout
-    lbStartTitle = new QLabel(tr("宠物小精灵对战系统"), this);
+    lbStartTitle = new QLabel(tr(u8"宠物小精灵对战系统"), this);
     lbStartTitle->setObjectName("lbStartTitle"); // for stylesheet
-    btnPlay = new QPushButton(tr("开始游戏"), this);
+    btnPlay = new QPushButton(tr(u8"开始游戏"), this);
     btnPlay->setObjectName("btnPlay");
-    btnExit = new QPushButton(tr("退出"), this);
+    btnExit = new QPushButton(tr(u8"退出"), this);
     btnExit->setObjectName("btnExit");
 
 	// login layout
-	lbLoginLabel = new QLabel(tr("登录"), this);
+    lbLoginLabel = new QLabel(tr(u8"登录"), this);
 	lbLoginLabel->setObjectName("lbLoginLabel");
 	leUsername = new QLineEdit(this);
 	leUsername->setObjectName("leUsername");
-	leUsername->setPlaceholderText(tr("请输入用户名"));
+    leUsername->setPlaceholderText(tr(u8"请输入用户名"));
 	lePassword = new QLineEdit(this);
 	lePassword->setObjectName("lePassword");
-	lePassword->setPlaceholderText(tr("请输入密码"));
+    lePassword->setPlaceholderText(tr(u8"请输入密码"));
 	lePassword->setEchoMode(QLineEdit::Password);
-	btnLogin = new QPushButton(tr("登录"), this);
+    btnLogin = new QPushButton(tr(u8"登录"), this);
 	btnLogin->setObjectName("btnLogin");
-	btnLogon = new QPushButton(tr("注册"), this);
+    btnLogon = new QPushButton(tr(u8"注册"), this);
 	btnLogon->setObjectName("btnLogon");
-	btnBack = new QPushButton(tr("返回"), this);
+    btnBack = new QPushButton(tr(u8"返回"), this);
 	btnBack->setObjectName("btnBack");
 
 	// main layout
-	btnLogout = new QPushButton(tr("退出登录"), this);
+    btnLogout = new QPushButton(tr(u8"退出登录"), this);
 	btnLogout->setObjectName("btnLogout");
-	btnShowPokemonList = new QPushButton(tr("查看精灵"), this);
+    btnShowPokemonList = new QPushButton(tr(u8"查看精灵"), this);
 	btnShowPokemonList->setObjectName("btnShowPokemonList");
-	btnDisplayAllPlayer = new QPushButton(tr("查看所有玩家"), this);
+    btnDisplayAllPlayer = new QPushButton(tr(u8"查看所有玩家"), this);
 	btnDisplayAllPlayer->setObjectName("btnDisplayAllPlayer");
-	btnChangePassword = new QPushButton(tr("修改密码"), this);
+    btnChangePassword = new QPushButton(tr(u8"修改密码"), this);
 	btnChangePassword->setObjectName("btnChangePassword");
 
 	// change password layout
 	leNewPassword = new QLineEdit(this);
 	leNewPassword->setObjectName("leNewPassword");
-	btnOK = new QPushButton(tr("提交"), this);
+    btnOK = new QPushButton(tr(u8"提交"), this);
 	btnOK->setObjectName("btnOK");
-	leNewPassword->setPlaceholderText(tr("请输入新密码"));
+    leNewPassword->setPlaceholderText(tr(u8"请输入新密码"));
 	leNewPassword->setEchoMode(QLineEdit::Password);
 
 	// pokemon table and player table
@@ -121,12 +121,12 @@ ui(new Ui::MainWindow)
 	connect(btnOK, &QPushButton::clicked, this, [this] {
 		if (!isValidPassword(lePassword->text()))
 		{
-			QMessageBox::warning(this, tr("错误"), tr("旧密码格式错误"));
+            QMessageBox::warning(this, tr(u8"错误"), tr(u8"旧密码格式错误"));
 			lePassword->clear();
 		}
 		else if (!isValidPassword(leNewPassword->text()))
 		{
-			QMessageBox::warning(this, tr("错误"), tr("新密码格式错误"));
+            QMessageBox::warning(this, tr(u8"错误"), tr(u8"新密码格式错误"));
 			leNewPassword->clear();
 		}
 		else
@@ -303,14 +303,14 @@ void MainWindow::login()
 {
 	if (!isValidUsername(leUsername->text()))
 	{
-		QMessageBox::warning(this, tr("错误"), tr("用户名不合法"));
+        QMessageBox::warning(this, tr(u8"错误"), tr(u8"用户名不合法"));
 		leUsername->clear();
 		lePassword->clear();
 		return;
 	}
 	if (!isValidPassword(lePassword->text()))
 	{
-		QMessageBox::warning(this, tr("错误"), tr("密码不合法"));
+        QMessageBox::warning(this, tr(u8"错误"), tr(u8"密码不合法"));
 		lePassword->clear();
 		return;
 	}
@@ -326,7 +326,7 @@ void MainWindow::login()
 	if (client->write(msg.toLocal8Bit(), BUF_LENGTH) == -1)
 	{
 		// error
-		QMessageBox::warning(this, tr("错误"), tr("服务器错误"));
+        QMessageBox::warning(this, tr(u8"错误"), tr(u8"服务器错误"));
 		btnLogin->setDisabled(false);
 	}
 	lePassword->clear();
@@ -345,11 +345,11 @@ void MainWindow::getServerMsg()
 	{
 		if (msg != "Accept.\n")
 		{
-			QMessageBox::warning(this, tr("错误"), tr("修改精灵名字失败"));
+            QMessageBox::warning(this, tr(u8"错误"), tr(u8"修改精灵名字失败"));
 		}
 		else
 		{
-			QMessageBox::information(this, tr("精灵修改名字"), tr("精灵名字已更新"));
+            QMessageBox::information(this, tr(u8"精灵修改名字"), tr(u8"精灵名字已更新"));
 		}
 
 		changingPokemonName = false;
@@ -365,7 +365,7 @@ void MainWindow::getServerMsg()
 		if (port == 0)
 		{
 			// login failed
-			QMessageBox::warning(this, tr("错误"), msg);
+            QMessageBox::warning(this, tr(u8"错误"), msg);
 		}
 		else
 		{
@@ -388,7 +388,7 @@ void MainWindow::getServerMsg()
 
 		table->setRowCount(players.size() - 2);
 		table->setColumnCount(4); // id - username - online - viewPokemon
-		table->setHorizontalHeaderLabels({ tr("玩家ID"), tr("用户名"), tr("在线情况"), tr("操作") });
+        table->setHorizontalHeaderLabels({ tr(u8"玩家ID"), tr(u8"用户名"), tr(u8"在线情况"), tr(u8"操作") });
         //table->verticalHeader()->hide();
         //table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
         //table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
@@ -411,12 +411,12 @@ void MainWindow::getServerMsg()
 			if (detail[2] == '0')
 				t->setBackgroundColor(QColor("#eff0f1"));
 			table->setItem(tableRowIndex, 1, t);
-			t = new QTableWidgetItem(detail[2] == '1' ? tr("在线") : tr("离线"));
+            t = new QTableWidgetItem(detail[2] == '1' ? tr(u8"在线") : tr(u8"离线"));
 			t->setFlags(t->flags() ^ Qt::ItemIsEnabled);
 			if (detail[2] == '0')
 				t->setBackgroundColor(QColor("#eff0f1"));
 			table->setItem(tableRowIndex, 2, t);
-			auto btn = new QPushButton(tr("查看小精灵"), this);
+            auto btn = new QPushButton(tr(u8"查看小精灵"), this);
 			connect(btn, &QPushButton::clicked, this, [this, detail] {
 				changeState(POKEMON_TABLE);
 				currentPlayerID = detail[0].toInt();
@@ -437,7 +437,7 @@ void MainWindow::getServerMsg()
 
 			table->setRowCount(pokemons.size() - 1);
 			table->setColumnCount(5);
-			table->setHorizontalHeaderLabels({ tr("精灵ID"), tr("名字"), tr("种族"), tr("等级"), tr("操作") });
+            table->setHorizontalHeaderLabels({ tr(u8"精灵ID"), tr(u8"名字"), tr(u8"种族"), tr(u8"等级"), tr(u8"操作") });
             //table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
             //table->verticalHeader()->hide();
 			for (int i = 0; i < pokemons.size() - 1; ++i)
@@ -448,7 +448,7 @@ void MainWindow::getServerMsg()
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
 				table->setItem(i, 0, t);
 				t = new QTableWidgetItem(detail[1]);
-				t->setToolTip(tr("双击以更改精灵名称"));
+                t->setToolTip(tr(u8"双击以更改精灵名称"));
 				table->setItem(i, 1, t);
 				t = new QTableWidgetItem(detail[2]);
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
@@ -456,7 +456,7 @@ void MainWindow::getServerMsg()
 				t = new QTableWidgetItem(detail[3]);
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
 				table->setItem(i, 3, t);
-				auto btn = new QPushButton(tr("查看详情"), this);
+                auto btn = new QPushButton(tr(u8"查看详情"), this);
 				connect(btn, &QPushButton::clicked, this, [this, detail] {
 					QString str = "getPokemon ";
 					str += detail[0];
@@ -496,12 +496,12 @@ void MainWindow::getServerMsg()
 	case CHANGE_PSW:
 		if (msg == "Accept.\n")
 		{
-			QMessageBox::information(this, tr("密码重置"), tr("密码重置成功"));
+            QMessageBox::information(this, tr(u8"密码重置"), tr(u8"密码重置成功"));
 			changeState(MAIN);
 		}
 		else
 		{
-			QMessageBox::warning(this, tr("错误"), msg);
+            QMessageBox::warning(this, tr(u8"错误"), msg);
 		}
 		break;
 	default:

@@ -1030,6 +1030,22 @@ debug\mainwindow.obj: ..\Client\mainwindow.cpp ..\Client\mainwindow.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtMultimedia\qaudio.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtNetwork\qnetworkconfiguration.h \
 		ui_mainwindow.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QApplication \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\qeventloop.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtGui\qinputmethod.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QMenuBar \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qmenubar.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qmenu.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qaction.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qactiongroup.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QStatusBar \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qstatusbar.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QToolBar \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qtoolbar.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\QFile \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\QTextStream \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtNetwork\QHostAddress \
@@ -1162,6 +1178,14 @@ debug\logondlg.obj: ..\Client\logondlg.cpp ..\Client\logondlg.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtNetwork\qtnetwork-config.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtNetwork\qabstractsocket.h \
 		ui_logondlg.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QApplication \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\qeventloop.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QGridLayout \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qgridlayout.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qlayout.h \
@@ -1301,6 +1325,14 @@ debug\pokemondlg.obj: ..\Client\pokemondlg.cpp ..\Client\pokemondlg.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QLabel \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qlabel.h \
 		ui_pokemondlg.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QApplication \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\qcoreapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtCore\qeventloop.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtGui\qguiapplication.h \
+		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtGui\qinputmethod.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\QVBoxLayout \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qboxlayout.h \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\include\QtWidgets\qlayout.h \

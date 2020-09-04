@@ -8,11 +8,11 @@ ui(new Ui::PokemonDlg)
 	ui->setupUi(this);
 
 	// ui
-	setWindowTitle(tr("精灵详情"));
+    setWindowTitle(tr(u8"精灵详情"));
 	table = new QTableWidget(this);
 	table->setColumnCount(1);
 	table->setRowCount(9);
-    table->setVerticalHeaderLabels({ tr("精灵ID"), tr("名字"), tr("种族"), tr("攻击力"), tr("防御力"), tr("生命值"), tr("速度"), tr("等级"), tr("经验") });
+    table->setVerticalHeaderLabels({ tr(u8"精灵ID"), tr(u8"名字"), tr(u8"种族"), tr(u8"攻击力"), tr(u8"防御力"), tr(u8"生命值"), tr(u8"速度"), tr(u8"等级"), tr(u8"经验") });
     //table->horizontalHeader()->hide();
     //table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
@@ -33,7 +33,7 @@ ui(new Ui::PokemonDlg)
 			if (myPokemonTable)
 			{
 				// can just change my pokemon's name
-				t->setToolTip(tr("双击以更改精灵名称"));
+                t->setToolTip(tr(u8"双击以更改精灵名称"));
 			}
 			else
 			{
@@ -51,25 +51,25 @@ ui(new Ui::PokemonDlg)
 	// img
 	lbImg = new QLabel(this);
 	// if (details[2] == "Bulbasaur")
-	if (details[2] == "妙蛙种子")
+    if (details[2] == "妙蛙种子")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/bulbasaur.png"));
 		setWindowIcon(QIcon(":/img/img/bulbasaur.png"));
 	}
 	// else if (details[2] == "Charmander")
-	else if (details[2] == "小火龙")
+    else if (details[2] == "小火龙")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/charmander.png"));
 		setWindowIcon(QIcon(":/img/img/charmander.png"));
 	}
 	// else if (details[2] == "Squirtle")
-	else if (details[2] == "杰尼龟")
+    else if (details[2] == "杰尼龟")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/squirtle.png"));
 		setWindowIcon(QIcon(":/img/img/squirtle.png"));
 	}
 	// else if (details[2] == "Pidgey")
-	else if (details[2] == "波波")
+    else if (details[2] == "波波")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/pidgey.png"));
 		setWindowIcon(QIcon(":/img/img/pidgey.png"));

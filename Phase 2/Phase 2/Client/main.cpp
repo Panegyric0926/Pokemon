@@ -2,10 +2,12 @@
 #include <QApplication>
 #include <QFile>
 #include <QTextStream>
+#include <QTextCodec>
 
 int main(int argc, char* argv[])
 {
-
+    QTextCodec *codec = QTextCodec::codecForName("utf8");
+    QTextCodec::setCodecForLocale(codec);
     QApplication a(argc, argv);
     // set style sheet
     QFile file(":/qss/qss/main.qss");
