@@ -13,8 +13,8 @@ int main()
 	Race<2> race3;
 	Race<3> race4;
 
-	Pokemon pokemon1(race1, "pokemon1");
-	Pokemon pokemon2(race2, "pokemon2");
+	Pokemon pokemon1(race3, "pokemon1");
+	Pokemon pokemon2(race4, "pokemon2");
 
 	pokemon1.gainExp(1000);
 	pokemon2.gainExp(1000);
