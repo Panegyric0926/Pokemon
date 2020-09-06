@@ -91,7 +91,7 @@ Pokemon::Pokemon(int raceIndex, const string& name)
 		else if (raceIndex == 2)
 			_name = u8"Squirtle";
 		else if (raceIndex == 3)
-			_name = u8"Pidgey";;
+			_name = u8"Pidgey";
 	}
 	else
 	{
