@@ -89,51 +89,7 @@ int Endpoint::start()
 	endpointAddr.sin_addr.S_un.S_addr = htonl(INADDR_ANY); // any ip address
 
 #pragma region set socket keep_alive
-/**
- * I spend hours for the 40 lines of code below
- * And when I finish this module
- * I try to run without this block of code
- * IT STILL WORKS!
- * DAMN!
-*/
 
-// 	int iOptVal = 0;
-// 	int iOptLen = sizeof(int);
-// 	BOOL bOptVal = FALSE;
-// 	int bOptLen = sizeof(BOOL);
-// 	if (getsockopt(endpointSocket, SOL_SOCKET, SO_KEEPALIVE, (char *)&iOptVal, &iOptLen) == SOCKET_ERROR)
-// 	{
-// 		cout << "Endpoint[" << playerID << "]: Set keep_alive failed: " << WSAGetLastError() << "\n";
-// 		closesocket(endpointSocket);
-// 		return 0;
-// 	}
-// 	if (setsockopt(endpointSocket, SOL_SOCKET, SO_KEEPALIVE, (char *)&bOptVal, bOptLen) == SOCKET_ERROR)
-// 	{
-// 		cout << "Endpoint[" << playerID << "]: Set keep_alive failed: " << WSAGetLastError() << "\n";
-// 		closesocket(endpointSocket);
-// 		return 0;
-// 	}
-// 	/**
-// 	 * set KeepAlive parameter
-// 	 *
-// 	 * struct tcp_keepalive{
-// 	 *   ULONG onoff; // TRUE or FALSE
-// 	 *   ULONG keepalivetime; // after this time(ms) without data, send heart-beat
-// 	 *   ULONG keepaliveinterval; // heart-beat interval(ms)
-// 	 * };
-// 	 */
-// 	tcp_keepalive alive_in;
-// 	tcp_keepalive alive_out;
-// 	alive_in.keepalivetime = 500;			 // 0.5s
-// 	alive_in.keepaliveinterval = 1000; //1s
-// 	alive_in.onoff = TRUE;						 // turn on keep_alive
-// 	unsigned long ulBytesReturn = 0;
-// 	if (WSAIoctl(endpointSocket, SIO_KEEPALIVE_VALS, &alive_in, sizeof(alive_in), &alive_out, sizeof(alive_out), &ulBytesReturn, NULL, NULL) == SOCKET_ERROR)
-// 	{
-// 		cout << "Endpoint[" << playerID << "]: Set keep_alive failed: " << WSAGetLastError() << "\n";
-// 		closesocket(endpointSocket);
-// 		return 0;
-// 	}
 #pragma endregion
 
 	// bind socket to an address
@@ -338,7 +294,7 @@ void Endpoint::resetPassword(const string& oldPassword, const string& newPasswor
 		cout << "Endpoint[" << playerID << "]: Sqlite3 error: " << errMsg << endl;
 		sqlite3_free(errMsg);
 		// strcpy(buf, "Reject: Server error.\n");
-		strcpy(buf, "服务器错误");
+		strcpy(buf, u8"服务器错误");
 		send(connSocket, buf, BUF_LENGTH, 0);
 		return;
 	}
@@ -347,7 +303,7 @@ void Endpoint::resetPassword(const string& oldPassword, const string& newPasswor
 		// wrong password
 		sqlite3_free_table(sqlResult);
 		// strcpy(buf, "Reject: wrong old password.\n");
-		strcpy(buf, "旧密码不正确");
+		strcpy(buf, u8"旧密码不正确");
 		send(connSocket, buf, BUF_LENGTH, 0);
 		return;
 	}
@@ -363,7 +319,7 @@ void Endpoint::resetPassword(const string& oldPassword, const string& newPasswor
 		cout << "Endpoint[" << playerID << "]: Sqlite3 error: " << errMsg << endl;
 		sqlite3_free(errMsg);
 		// strcpy(buf, "Reject: Server error.\n");
-		strcpy(buf, "服务器错误");
+		strcpy(buf, u8"服务器错误");
 		send(connSocket, buf, BUF_LENGTH, 0);
 		return;
 	}

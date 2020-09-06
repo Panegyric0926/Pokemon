@@ -102,13 +102,13 @@ Pokemon::Pokemon(int raceIndex, const string& name)
 	if (!name.length())
 	{
 		if (raceIndex == 0)
-			_name = u8"Charmander";
+			_name = "Charmander";
 		else if (raceIndex == 1)
-			_name = u8"Bulbasaur";
+			_name = "Bulbasaur";
 		else if (raceIndex == 2)
-			_name = u8"Squirtle";
+			_name = "Squirtle";
 		else if (raceIndex == 3)
-			_name = u8"Pidgey";
+			_name = "Pidgey";
 	}
 	else
 	{
