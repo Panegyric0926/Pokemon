@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="battlecontroller.h" />
-    <ClInclude Include="pokemon.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="battlecontroller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pokemon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="battlecontroller.h" />
+    <ClInclude Include="pokemon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,9 +14,9 @@ class Pokemon; //declaration
 enum PokemonType
 {
 	ATK, //high attack
-	HP,	//high HP
+	HP,  //high HP
 	DEF, //high defence
-	SPE	//high speed
+	SPE	 //high speed
 };
 
 class PokemonBase
@@ -28,10 +28,10 @@ protected: //all those attributes can be changed by derived classes
 	int _baseDef;
 	int _baseHp;
 	int _baseSpeed;
-	int _expCurve[14];		//from LV2 to LV15
+	int _expCurve[14];	  //from LV2 to LV15
 	string _skillName[4]; //one simple attack, 3 special skills
 	string _skillDscp[4]; //skill description
-	int _pp[3];						//power point, simple attack has infinite pp
+	int _pp[3];			  //power point, simple attack has infinite pp
 
 public:
 	PokemonBase(PokemonType type);
@@ -51,7 +51,7 @@ public:
 	int expCurve(int level) const; // 2 <= level <= 15
 
 	//virtual methods
-	virtual bool attack(Pokemon& attacker, Pokemon& aim, int skillIndex = 0) const = 0; //yes, this is a CONST method
+	virtual bool attack(Pokemon& attacker, Pokemon& aim, int skillIndex = 0) const = 0;
 
 	bool dodge(int attacker, int aim) const;
 };
