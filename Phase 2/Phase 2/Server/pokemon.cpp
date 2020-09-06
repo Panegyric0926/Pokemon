@@ -84,7 +84,14 @@ Pokemon::Pokemon(int raceIndex, const string& name)
 
 	if (!name.length())
 	{
-		_name = races[_raceIndex]->raceName(); //use race name as default name
+		if (raceIndex == 0)
+			_name = u8"Charmander";
+		else if (raceIndex == 1)
+			_name = u8"Bulbasaur";
+		else if (raceIndex == 2)
+			_name = u8"Squirtle";
+		else if (raceIndex == 3)
+			_name = u8"Pidgey";;
 	}
 	else
 	{
@@ -451,7 +458,7 @@ template <>
 Race<0>::Race() : PokemonBase(ATK)
 {
 	// _raceName = "Charmander";
-	_raceName = "Ğ¡»ğÁú";
+	_raceName = u8"Ğ¡»ğÁú";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
@@ -519,7 +526,7 @@ template <>
 Race<1>::Race() : PokemonBase(HP)
 {
 	// _raceName = "Bulbasaur";
-	_raceName = "ÃîÍÜÖÖ×Ó";
+	_raceName = u8"ÃîÍÜÖÖ×Ó";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
@@ -591,7 +598,7 @@ template <>
 Race<2>::Race() : PokemonBase(DEF)
 {
 	// _raceName = "Squirtle";
-	_raceName = "½ÜÄá¹ê";
+	_raceName = u8"½ÜÄá¹ê";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
@@ -662,7 +669,7 @@ template <>
 Race<3>::Race() : PokemonBase(SPE)
 {
 	// _raceName = "Pidgey";
-	_raceName = "²¨²¨";
+	_raceName = u8"²¨²¨";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{

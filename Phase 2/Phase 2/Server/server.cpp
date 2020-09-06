@@ -265,7 +265,7 @@ void Hub::login(const string& username, const string& password)
 		{
 			cout << "Hub: Sqlite3 error: " << errMsg << endl;
 			// strcpy(buf, "Reject: Hub database error.\n");
-			strcpy(buf, "服务器数据库错误");
+			strcpy(buf, u8"服务器数据库错误");
 			sqlite3_free(errMsg);
 		}
 		else // sqlite select succeed
@@ -275,7 +275,7 @@ void Hub::login(const string& username, const string& password)
 				// username and password mismatch
 				cout << "Hub: Login: username '" << username << "' and password '" << password << "' mismatch.\n";
 				// strcpy(buf, "Reject: Username and password dismatch.\n");
-				strcpy(buf, "用户名或密码错误");
+				strcpy(buf, u8"用户名或密码错误");
 			}
 			else
 			{
@@ -292,7 +292,7 @@ void Hub::login(const string& username, const string& password)
 						if (endpoint->isOnline())
 						{
 							// strcpy(buf, "Reject: Account is already online.\n");
-							strcpy(buf, "用户已在其他设备登录");
+							strcpy(buf, u8"用户已在其他设备登录");
 						}
 						else
 						{
@@ -312,7 +312,7 @@ void Hub::login(const string& username, const string& password)
 					{
 						delete p;
 						// strcpy(buf, "Reject: Hub endpoint error.\n");
-						strcpy(buf, "服务器错误");
+						strcpy(buf, u8"服务器错误");
 					}
 					else // start normally, add this endpoint to endpoints
 					{
@@ -335,13 +335,13 @@ void Hub::logon(const string& username, const string& password)
 	{
 		cout << "Hub: Got an invalid username: " << username << endl;
 		// strcpy(buf, "Reject: Invalid username.\n");
-		strcpy(buf, "不合法的用户名");
+		strcpy(buf, u8"不合法的用户名");
 	}
 	else if (!isValidPassword(password))
 	{
 		cout << "Hub: Got an invalid password: " << password << endl;
 		// strcpy(buf, "Reject: Invalid password.\n");
-		strcpy(buf, "不合法的密码");
+		strcpy(buf, u8"不合法的密码");
 	}
 	else
 	{
@@ -354,7 +354,7 @@ void Hub::logon(const string& username, const string& password)
 		{
 			cout << "Hub: Sqlite3 error: " << errMsg << endl;
 			// strcpy(buf, "Reject: Hub database error.\n");
-			strcpy(buf, "服务器数据库错误");
+			strcpy(buf, u8"服务器数据库错误");
 			sqlite3_free(errMsg);
 		}
 		else
@@ -368,7 +368,7 @@ void Hub::logon(const string& username, const string& password)
 				{
 					cout << "Hub: Sqlite3 error: " << errMsg << endl;
 					sqlite3_free(errMsg);
-					strcpy(buf, "服务器数据库错误");
+					strcpy(buf, u8"服务器数据库错误");
 					// strcpy(buf, "Reject: Hub database error.\n");
 				}
 				else
@@ -382,7 +382,7 @@ void Hub::logon(const string& username, const string& password)
 				// username already exist
 				cout << "Hub: Logon: username '" << username << "' already exist.\n";
 				//strcpy(buf, "Reject: Duplicate username.\n");
-				strcpy(buf, "用户名已存在");
+				strcpy(buf, u8"用户名已存在");
 			}
 			sqlite3_free_table(sqlResult);
 		}
