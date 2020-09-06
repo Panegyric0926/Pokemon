@@ -1,5 +1,5 @@
 *{
-	font-family: "Î¢ÈíÑÅºÚ";
+	font-family: "Kaiti";
 	font-weight: 75;
 }
 
@@ -80,4 +80,17 @@
 	padding: 0 8px;
 	background: white;
 	selection-background-color: darkgray;
+}
+
+#lbStartTitle, #lbLoginLabel{
+	font-size: 30pt;
+	font-weight: 75;
+}
+
+#lbStartTitle, #lbLoginLabel{
+    width: 400px;
+    height: 80px;
+    background: white;
+    selection-background-color: darkgray;
+    color: black;
 }
