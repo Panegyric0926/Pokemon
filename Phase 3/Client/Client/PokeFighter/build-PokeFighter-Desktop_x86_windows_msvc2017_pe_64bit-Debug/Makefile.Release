@@ -196,11 +196,11 @@ release\qrc_img.cpp: ..\PokeFighter\img.qrc \
 		D:\Qt\Qt5.12.9\5.12.9\msvc2017_64\bin\rcc.exe \
 		..\PokeFighter\img\start.jpg \
 		..\PokeFighter\img\bulbasaur.png \
-		..\PokeFighter\img\pidgey.png \
 		..\PokeFighter\img\copperbadge2.png \
 		..\PokeFighter\img\play.png \
 		..\PokeFighter\img\copperbadge.png \
 		..\PokeFighter\img\goldenbadge2.png \
+		..\PokeFighter\img\pikachu.png \
 		..\PokeFighter\img\charmander.png \
 		..\PokeFighter\img\lock.png \
 		..\PokeFighter\img\silverbadge2.png \

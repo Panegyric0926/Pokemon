@@ -436,14 +436,14 @@ Race<0>::Race() : PokemonBase(ATK)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = "kick";
-	_skillName[1] = "spark";
-	_skillName[2] = "rage";
-	_skillName[3] = "fireball";
-	_skillDscp[0] = "simple attack";
-	_skillDscp[1] = "ignore opponent's half defence";
-	_skillDscp[2] = "increase attack";
-	_skillDscp[3] = "cause huge damage";
+	_skillName[0] = "Scratch";
+	_skillName[1] = "Growl";
+	_skillName[2] = "Ember";
+	_skillName[3] = "Flamethrower";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Ignore Your Opponent's Defence!";
+	_skillDscp[2] = "Increase Your Attack!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 10;
 	_pp[1] = 3;
 	_pp[2] = 5;
@@ -456,7 +456,7 @@ bool Race<0>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 
 	switch (skillIndex)
 	{
-	case 1: //spark
+	case 1:
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
@@ -466,10 +466,10 @@ bool Race<0>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 
 		break;
 	}
-	case 2: //rage
+	case 2:
 		attacker.changeAtk(attacker.atk() / 8);
 		break;
-	case 3: //fireball
+	case 3: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
@@ -481,7 +481,7 @@ bool Race<0>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 	}
 	default:
 	{
-		//simple attack
+		
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
 
@@ -503,14 +503,14 @@ Race<1>::Race() : PokemonBase(HP)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = "kick";
-	_skillName[1] = "photosynthesis";
-	_skillName[2] = "life drain";
-	_skillName[3] = "razor leaf";
-	_skillDscp[0] = "simple attack";
-	_skillDscp[1] = "restore HP";
-	_skillDscp[2] = "cause damage and restore HP, ignore defence";
-	_skillDscp[3] = "cause huge damage";
+	_skillName[0] = "Tackle";
+	_skillName[1] = "Synthesis";
+	_skillName[2] = "Leech Seed";
+	_skillName[3] = "Razor Leaf";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Restore Health-Point!";
+	_skillDscp[2] = "Restore Health-Point & Cause Some Damage!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 5;
 	_pp[1] = 10;
 	_pp[2] = 5;
@@ -523,12 +523,12 @@ bool Race<1>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 
 	switch (skillIndex)
 	{
-	case 1: //photosynthesis
+	case 1: 
 	{
 		attacker.changeHp(attacker.catk() / 2 + attacker.cdef() + f(4));
 		break;
 	}
-	case 2: //life drain
+	case 2: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
@@ -540,7 +540,7 @@ bool Race<1>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 		return aim.takeDamage(dmg);
 		break;
 	}
-	case 3: //razor leaf
+	case 3: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
@@ -574,14 +574,14 @@ Race<2>::Race() : PokemonBase(DEF)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = "kick";
-	_skillName[1] = "iron defence";
-	_skillName[2] = "water pulse";
-	_skillName[3] = "hydro pump";
-	_skillDscp[0] = "simple attack";
-	_skillDscp[1] = "improve defence";
-	_skillDscp[2] = "improve attack then cause damage";
-	_skillDscp[3] = "cause huge damage";
+	_skillName[0] = "Tackle";
+	_skillName[1] = "Iron Defense";
+	_skillName[2] = "Aqua Tail";
+	_skillName[3] = "Hydro Pump";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Increase Your Defence!";
+	_skillDscp[2] = "Increase Your Attack & Cause Some Damage!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 10;
 	_pp[1] = 10;
 	_pp[2] = 3;
@@ -594,12 +594,12 @@ bool Race<2>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 
 	switch (skillIndex)
 	{
-	case 1: //iron defence
+	case 1: 
 	{
 		attacker.changeDef(2);
 		break;
 	}
-	case 2: //water pulse
+	case 2: 
 	{
 		attacker.changeAtk(2);
 		if (dodge(attacker.cspeed(), aim.cspeed()))
@@ -610,7 +610,7 @@ bool Race<2>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 
 		break;
 	}
-	case 3: //hydro pump
+	case 3: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
@@ -638,20 +638,20 @@ bool Race<2>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 template <>
 Race<3>::Race() : PokemonBase(SPE)
 {
-	_raceName = "Pidgey";
+	_raceName = "Pikachu";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = "kick";
-	_skillName[1] = "agility";
-	_skillName[2] = "wing attack";
-	_skillName[3] = "take down";
-	_skillDscp[0] = "simple attack";
-	_skillDscp[1] = "improve speed";
-	_skillDscp[2] = "cause damage based on current speed";
-	_skillDscp[3] = "cause huge damage based on current speed";
+	_skillName[0] = "Thunder Shock";
+	_skillName[1] = "Double Team";
+	_skillName[2] = "Discharge";
+	_skillName[3] = "Thunderbolt";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Increase Your Speed!";
+	_skillDscp[2] = "Cause Some Damage!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 5;
 	_pp[1] = 10;
 	_pp[2] = 5;
@@ -664,12 +664,12 @@ bool Race<3>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 
 	switch (skillIndex)
 	{
-	case 1: //agility
+	case 1: 
 	{
 		attacker.changeSpeed(attacker.speed() / 5);
 		break;
 	}
-	case 2: //wing attack
+	case 2: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
@@ -679,12 +679,12 @@ bool Race<3>::attack(Pokemon& attacker, Pokemon& aim, int skillIndex) const
 
 		break;
 	}
-	case 3: //take down
+	case 3: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed()))
 			return false;
 
-		int dmg = attacker.catk() - aim.cdef() + attacker.cspeed() / 2 + f(3 + attacker.lv());
+		int dmg = attacker.catk() * 2 - aim.cdef() + f(3 + attacker.lv());
 		return aim.takeDamage(dmg);
 
 		break;

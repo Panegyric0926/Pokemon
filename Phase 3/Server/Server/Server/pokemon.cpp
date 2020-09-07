@@ -108,7 +108,7 @@ Pokemon::Pokemon(int raceIndex, const string& name)
 		else if (raceIndex == 2)
 			_name = "Squirtle";
 		else if (raceIndex == 3)
-			_name = "Pidgey";
+			_name = "Pikachu";
 	}
 	else
 	{
@@ -476,21 +476,20 @@ int f(int n)
 template <>
 Race<0>::Race() : PokemonBase(ATK)
 {
-	// _raceName = "Charmander";
-	_raceName = u8"小火龙";
+	_raceName = "Charmander";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = u8"撞击";
-	_skillName[1] = u8"火花";
-	_skillName[2] = u8"怒气";
-	_skillName[3] = u8"火球";
-	_skillDscp[0] = u8"普通攻击";
-	_skillDscp[1] = u8"忽略敌人一半防御的攻击";
-	_skillDscp[2] = u8"增加攻击力";
-	_skillDscp[3] = u8"伤害很高的大招";
+	_skillName[0] = "Scratch";
+	_skillName[1] = "Growl";
+	_skillName[2] = "Ember";
+	_skillName[3] = "Flamethrower";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Ignore Your Opponent's Defence!";
+	_skillDscp[2] = "Increase Your Attack!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 10;
 	_pp[1] = 3;
 	_pp[2] = 5;
@@ -505,7 +504,7 @@ bool Race<0>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 
 	switch (skillIndex)
 	{
-	case 1: //spark
+	case 1:
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
@@ -527,7 +526,7 @@ bool Race<0>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 
 		break;
 	}
-	case 2:				 //rage
+	case 2:				 
 		msg += "0 "; // can not dodge
 
 		attacker.changeAtk(attacker.atk() / 8);
@@ -542,7 +541,7 @@ bool Race<0>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 			msg += to_string(attacker.cpp(i)) + ' ';
 		}
 		break;
-	case 3: //fireball
+	case 3: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
@@ -592,21 +591,20 @@ bool Race<0>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 template <>
 Race<1>::Race() : PokemonBase(HP)
 {
-	// _raceName = "Bulbasaur";
-	_raceName = u8"妙蛙种子";
+	_raceName = "Bulbasaur";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = u8"撞击";
-	_skillName[1] = u8"光合作用";
-	_skillName[2] = u8"吸血";
-	_skillName[3] = u8"飞叶快刀";
-	_skillDscp[0] = u8"普通攻击";
-	_skillDscp[1] = u8"恢复生命值";
-	_skillDscp[2] = u8"无视防御，造成伤害并恢复自身生命值";
-	_skillDscp[3] = u8"伤害很高的大招";
+	_skillName[0] = "Tackle";
+	_skillName[1] = "Synthesis";
+	_skillName[2] = "Leech Seed";
+	_skillName[3] = "Razor Leaf";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Restore Health-Point!";
+	_skillDscp[2] = "Restore Health-Point & Cause Some Damage!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 5;
 	_pp[1] = 10;
 	_pp[2] = 5;
@@ -621,7 +619,7 @@ bool Race<1>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 
 	switch (skillIndex)
 	{
-	case 1: //photosynthesis
+	case 1:
 	{
 		msg += "0 "; // can not dodge
 
@@ -638,7 +636,7 @@ bool Race<1>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 		}
 		break;
 	}
-	case 2: //life drain
+	case 2:
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
@@ -661,7 +659,7 @@ bool Race<1>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 		return result;
 		break;
 	}
-	case 3: //razor leaf
+	case 3:
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
@@ -704,28 +702,27 @@ bool Race<1>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 
 		break;
 	}
-	} //switch
+	}
 	return false;
 }
 
 template <>
 Race<2>::Race() : PokemonBase(DEF)
 {
-	// _raceName = "Squirtle";
-	_raceName = u8"杰尼龟";
+	_raceName = "Squirtle";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = u8"撞击";
-	_skillName[1] = u8"铁壁";
-	_skillName[2] = u8"水之波动";
-	_skillName[3] = u8"水炮";
-	_skillDscp[0] = u8"普通攻击";
-	_skillDscp[1] = u8"增加防御";
-	_skillDscp[2] = u8"造成伤害并增加攻击";
-	_skillDscp[3] = u8"伤害很高的大招";
+	_skillName[0] = "Tackle";
+	_skillName[1] = "Iron Defense";
+	_skillName[2] = "Aqua Tail";
+	_skillName[3] = "Hydro Pump";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Increase Your Defence!";
+	_skillDscp[2] = "Increase Your Attack & Cause Some Damage!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 10;
 	_pp[1] = 10;
 	_pp[2] = 3;
@@ -740,7 +737,7 @@ bool Race<2>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 
 	switch (skillIndex)
 	{
-	case 1: //iron defence
+	case 1: 
 	{
 		msg += "0 "; // can not dodge
 
@@ -759,7 +756,7 @@ bool Race<2>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 		// return result;
 		break;
 	}
-	case 2: //water pulse
+	case 2: 
 	{
 		attacker.changeAtk(2);
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
@@ -781,7 +778,7 @@ bool Race<2>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 
 		break;
 	}
-	case 3: //hydro pump
+	case 3: 
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
@@ -831,21 +828,20 @@ bool Race<2>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 template <>
 Race<3>::Race() : PokemonBase(SPE)
 {
-	// _raceName = "Pidgey";
-	_raceName = u8"波波";
+	_raceName = "Pikachu";
 	_expCurve[0] = 5;
 	for (int i = 1; i < 14; ++i)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = u8"撞击";
-	_skillName[1] = u8"高速移动";
-	_skillName[2] = u8"拍打";
-	_skillName[3] = u8"猛冲";
-	_skillDscp[0] = u8"普通攻击";
-	_skillDscp[1] = u8"提升自身速度";
-	_skillDscp[2] = u8"自身速度越高伤害越高";
-	_skillDscp[3] = u8"伤害很高的大招。自身速度越高伤害越高";
+	_skillName[0] = "Thunder Shock";
+	_skillName[1] = "Double Team";
+	_skillName[2] = "Discharge";
+	_skillName[3] = "Thunderbolt";
+	_skillDscp[0] = "Basic Attack.";
+	_skillDscp[1] = "Increase Your Speed!";
+	_skillDscp[2] = "Cause Some Damage!";
+	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
 	_pp[0] = 5;
 	_pp[1] = 10;
 	_pp[2] = 5;
@@ -860,86 +856,39 @@ bool Race<3>::attack(Pokemon& attacker, Pokemon& aim, string& msg, int skillInde
 
 	switch (skillIndex)
 	{
-	case 1: //agility
+	case 1:
 	{
-		msg += "0 "; // can not dodge
-
 		attacker.changeSpeed(attacker.speed() / 5);
-		// bool result = aim.takeDamage(dmg);
-		msg += to_string(aim.hp()) + " 1 1 1 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(aim.cpp(i)) + ' ';
-		}
-		msg += to_string(attacker.hp()) + " 1 1 2 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(attacker.cpp(i)) + ' ';
-		}
-		// return result;
 		break;
 	}
-	case 2: //wing attack
+	case 2:
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
 
 		int dmg = attacker.catk() + attacker.cspeed() / 4 - aim.cdef() + f(4 + attacker.lv());
-		bool result = aim.takeDamage(dmg);
-		msg += to_string(aim.hp()) + " 1 1 1 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(aim.cpp(i)) + ' ';
-		}
-		msg += to_string(attacker.hp()) + " 1 1 1 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(attacker.cpp(i)) + ' ';
-		}
-		return result;
+		return aim.takeDamage(dmg);
 
 		break;
 	}
-	case 3: //take down
+	case 3:
 	{
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
 
-		int dmg = attacker.catk() - aim.cdef() + attacker.cspeed() / 2 + f(3 + attacker.lv());
-		bool result = aim.takeDamage(dmg);
-		msg += to_string(aim.hp()) + " 1 1 1 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(aim.cpp(i)) + ' ';
-		}
-		msg += to_string(attacker.hp()) + " 1 1 1 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(attacker.cpp(i)) + ' ';
-		}
-		return result;
+		int dmg = attacker.catk() * 2 - aim.cdef() + f(3 + attacker.lv());
+		return aim.takeDamage(dmg);
 
 		break;
 	}
 	default:
 	{
-		//普通攻击
+		//simple attack
 		if (dodge(attacker.cspeed(), aim.cspeed(), msg))
 			return false;
 
 		int dmg = attacker.catk() - aim.cdef() + f(4);
-		bool result = aim.takeDamage(dmg);
-		msg += to_string(aim.hp()) + " 1 1 1 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(aim.cpp(i)) + ' ';
-		}
-		msg += to_string(attacker.hp()) + " 1 1 1 ";
-		for (int i = 0; i < 3; ++i)
-		{
-			msg += to_string(attacker.cpp(i)) + ' ';
-		}
-		return result;
+		return aim.takeDamage(dmg);
 
 		break;
 	}

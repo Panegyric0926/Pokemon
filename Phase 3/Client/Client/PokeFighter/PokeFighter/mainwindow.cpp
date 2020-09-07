@@ -93,9 +93,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
 	btnEnemyRace2->setObjectName("btnEnemyRace2");
 	btnEnemyRace2->setIcon(QPixmap(":/img/img/squirtle.png"));
 	btnEnemyRace2->setIconSize(QSize(300, 300));
-    btnEnemyRace3 = new QPushButton(tr(u8"波波"), this);
+    btnEnemyRace3 = new QPushButton(tr(u8"皮卡丘"), this);
 	btnEnemyRace3->setObjectName("btnEnemyRace3");
-	btnEnemyRace3->setIcon(QPixmap(":/img/img/pidgey.png"));
+    btnEnemyRace3->setIcon(QPixmap(":/img/img/pikachu.png"));
 	btnEnemyRace3->setIconSize(QSize(300, 300));
 	sbEnemyLV->setMaximum(15);
 	sbEnemyLV->setMinimum(1);
@@ -862,14 +862,14 @@ void MainWindow::getServerMsg()
 				table->setItem(i, 1, t);
 				t = new QTableWidgetItem(detail[2]);
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
-                if (detail[2] == u8"小火龙")
+                if (detail[2] == "Charmander")
 					t->setIcon(QIcon(":/img/img/charmander.png"));
-                else if (detail[2] == u8"妙蛙种子")
+                else if (detail[2] == "Bulbasaur")
 					t->setIcon(QIcon(":/img/img/bulbasaur.png"));
-                else if (detail[2] == u8"杰尼龟")
+                else if (detail[2] == "Squirtle")
 					t->setIcon(QIcon(":/img/img/squirtle.png"));
-                else if (detail[2] == u8"波波")
-					t->setIcon(QIcon(":/img/img/pidgey.png"));
+                else if (detail[2] == "Pikachu")
+                    t->setIcon(QIcon(":/img/img/pikachu.png"));
 				table->setItem(i, 2, t);
 				t = new QTableWidgetItem(detail[3]);
 				t->setFlags(t->flags() ^ Qt::ItemIsEditable);
@@ -1002,21 +1002,21 @@ void MainWindow::getServerMsg()
 			// get battle config message
 			auto ps = msg.split('\n');
 			auto detail = ps[0].split(' ');
-            if (detail[0] == u8"妙蛙种子")
+            if (detail[0] == "Bulbasaur")
 			{
 				lbP1->setPixmap(QPixmap(":/img/img/bulbasaur.png").scaledToHeight(500));
 			}
-            else if (detail[0] == u8"小火龙")
+            else if (detail[0] == "Charmander")
 			{
 				lbP1->setPixmap(QPixmap(":/img/img/charmander.png").scaledToHeight(500));
 			}
-            else if (detail[0] == u8"杰尼龟")
+            else if (detail[0] == "Squirtle")
 			{
 				lbP1->setPixmap(QPixmap(":/img/img/squirtle.png").scaledToHeight(500));
 			}
-            else if (detail[0] == u8"波波")
+            else if (detail[0] == "Pikachu")
 			{
-				lbP1->setPixmap(QPixmap(":/img/img/pidgey.png").scaledToHeight(500));
+                lbP1->setPixmap(QPixmap(":/img/img/pikachu.png").scaledToHeight(500));
 			}
 			pbP1HP->setMaximum(detail[1].toInt());
 			pbP1HP->setValue(detail[1].toInt());
@@ -1066,21 +1066,21 @@ void MainWindow::getServerMsg()
 				btnSkill_4->setText(btnSkill_4->text() + ' ' + detail[12]);
 			currentPokemonLV = detail[13].toInt();
 			detail = ps[1].split(' ');
-            if (detail[0] == u8"妙蛙种子")
+            if (detail[0] == "Bulbasaur")
 			{
 				lbP2->setPixmap(QPixmap(":/img/img/bulbasaur.png").scaledToHeight(500));
 			}
-            else if (detail[0] == u8"小火龙")
+            else if (detail[0] == "Charmander")
 			{
 				lbP2->setPixmap(QPixmap(":/img/img/charmander.png").scaledToHeight(500));
 			}
-            else if (detail[0] == u8"杰尼龟")
+            else if (detail[0] == "Squirtle")
 			{
 				lbP2->setPixmap(QPixmap(":/img/img/squirtle.png").scaledToHeight(500));
 			}
-            else if (detail[0] == u8"波波")
+            else if (detail[0] == "Pikachu")
 			{
-				lbP2->setPixmap(QPixmap(":/img/img/pidgey.png").scaledToHeight(500));
+                lbP2->setPixmap(QPixmap(":/img/img/pikachu.png").scaledToHeight(500));
 			}
 			pbP2HP->setMaximum(detail[1].toInt());
 			pbP2HP->setValue(detail[1].toInt());

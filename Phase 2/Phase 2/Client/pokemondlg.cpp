@@ -50,29 +50,25 @@ ui(new Ui::PokemonDlg)
 
 	// img
 	lbImg = new QLabel(this);
-	// if (details[2] == "Bulbasaur")
-    if (details[2] == u8"妙蛙种子")
+    if (details[2] == "Bulbasaur")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/bulbasaur.png"));
 		setWindowIcon(QIcon(":/img/img/bulbasaur.png"));
 	}
-	// else if (details[2] == "Charmander")
-    else if (details[2] == u8"小火龙")
+    else if (details[2] == "Charmander")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/charmander.png"));
 		setWindowIcon(QIcon(":/img/img/charmander.png"));
 	}
-	// else if (details[2] == "Squirtle")
-    else if (details[2] == u8"杰尼龟")
+    else if (details[2] == "Squirtle")
 	{
 		lbImg->setPixmap(QPixmap(":/img/img/squirtle.png"));
 		setWindowIcon(QIcon(":/img/img/squirtle.png"));
 	}
-	// else if (details[2] == "Pidgey")
-    else if (details[2] == u8"波波")
+    else if (details[2] == "Pikachu")
 	{
-		lbImg->setPixmap(QPixmap(":/img/img/pidgey.png"));
-		setWindowIcon(QIcon(":/img/img/pidgey.png"));
+        lbImg->setPixmap(QPixmap(":/img/img/pikachu.png"));
+        setWindowIcon(QIcon(":/img/img/pikachu.png"));
 	}
 
 	// layout

@@ -24,11 +24,11 @@
 }
 
 #btnPlay:flat, #btnExit:flat, #btnLogin:flat, #btnLogon:flat, #btnBack:flat, #btnLogout:flat, #btnShowPokemonList:flat, #btnDisplayAllPlayer:flat, #btnChangePassword:flat, #btnOK:flat{
-	border: none; /* no border for a flat push button */
+        border: none;
 }
 
 #btnPlay:default, #btnExit:default, #btnLogin:default, #btnLogon:default, #btnBack:default, #btnLogout:default, #btnShowPokemonList:default, #btnDisplayAllPlayer:default, #btnChangePassword:default, #btnOK:default{
-	border-color: navy; /* make the default button prominent */
+        border-color: navy;
 }
 
 #lbStartTitle, #lbLoginLabel{

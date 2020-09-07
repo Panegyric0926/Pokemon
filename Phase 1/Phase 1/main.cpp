@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	srand(time(NULL));
-	cout << "init pokemon races ...\n";
+	cout << "Welcome to the WORLD of POKEMON!.\n";
 	Race<0> race1;
 	Race<1> race2;
 	Race<2> race3;

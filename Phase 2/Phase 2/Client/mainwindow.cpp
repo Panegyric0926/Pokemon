@@ -12,7 +12,7 @@ ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
 
-    setWindowTitle(tr(u8"宠物小精灵对战程序客户端"));
+    setWindowTitle(tr(u8"Pokemon!"));
 
     // start layout
     lbStartTitle = new QLabel(tr(u8"宠物小精灵对战系统"), this);
