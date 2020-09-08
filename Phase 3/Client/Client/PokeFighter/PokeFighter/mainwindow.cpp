@@ -885,7 +885,7 @@ void MainWindow::getServerMsg()
 				if (state != POKEMON_TABLE)
 				{
 					// battle table
-                    auto btn = new QPushButton(tr(u8"就决定是你了！"), this);
+                    auto btn = new QPushButton(tr(u8"去叭黄皮耗子！"), this);
 					connect(btn, &QPushButton::clicked, this, [this, detail] {
 						battlePokemonID = detail[0];
 						currentPokemonLV = detail[3].toInt();
@@ -1410,15 +1410,15 @@ void MainWindow::getServerMsg()
 		if (pbP2HP->value() == 0)
 		{
 			if (state == LV_UP_BATTLE)
-                QMessageBox::information(this, tr(u8"恭喜"), tr(u8"你赢得了战斗"));
+                QMessageBox::information(this, tr("NB"), tr(u8"大佬啊"));
 			else
-                QMessageBox::information(this, tr(u8"恭喜"), tr(u8"你赢得了决斗，获得了敌对精灵"));
+                QMessageBox::information(this, tr("NB"), tr(u8"捕获了捕获了"));
 			changeState(MAIN);
 			break;
 		}
 		else if (pbP1HP->value() == 0)
 		{
-            QMessageBox::information(this, tr(u8"抱歉"), tr(u8"您战败了"));
+            QMessageBox::information(this, tr("QAQ"), tr(u8"失败是成功他爹！"));
 			if (state == DUEL_BATTLE)
 			{
 				changeState(CHOOSE_BET);

@@ -486,10 +486,10 @@ Race<0>::Race() : PokemonBase(ATK)
 	_skillName[1] = "Growl";
 	_skillName[2] = "Ember";
 	_skillName[3] = "Flamethrower";
-	_skillDscp[0] = "Basic Attack.";
-	_skillDscp[1] = "Ignore Your Opponent's Defence!";
-	_skillDscp[2] = "Increase Your Attack!";
-	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
+	_skillDscp[0] = "Basic-Attack.";
+	_skillDscp[1] = "Ignore-Your-Opponent's-Defence!";
+	_skillDscp[2] = "Increase-Your-Attack!";
+	_skillDscp[3] = "Lots-Of-Damage!!!!!!!!";
 	_pp[0] = 10;
 	_pp[1] = 3;
 	_pp[2] = 5;
@@ -599,12 +599,12 @@ Race<1>::Race() : PokemonBase(HP)
 	}
 	_skillName[0] = "Tackle";
 	_skillName[1] = "Synthesis";
-	_skillName[2] = "Leech Seed";
-	_skillName[3] = "Razor Leaf";
-	_skillDscp[0] = "Basic Attack.";
-	_skillDscp[1] = "Restore Health-Point!";
-	_skillDscp[2] = "Restore Health-Point & Cause Some Damage!";
-	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
+	_skillName[2] = "Leech-Seed";
+	_skillName[3] = "Razor-Leaf";
+	_skillDscp[0] = "Basic-Attack.";
+	_skillDscp[1] = "Restore-Health-Point!";
+	_skillDscp[2] = "Restore-Health-Point&Cause-Some-Damage!";
+	_skillDscp[3] = "Lots-Of-Damage!!!!!!!!";
 	_pp[0] = 5;
 	_pp[1] = 10;
 	_pp[2] = 5;
@@ -716,13 +716,13 @@ Race<2>::Race() : PokemonBase(DEF)
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
 	_skillName[0] = "Tackle";
-	_skillName[1] = "Iron Defense";
-	_skillName[2] = "Aqua Tail";
-	_skillName[3] = "Hydro Pump";
-	_skillDscp[0] = "Basic Attack.";
-	_skillDscp[1] = "Increase Your Defence!";
-	_skillDscp[2] = "Increase Your Attack & Cause Some Damage!";
-	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
+	_skillName[1] = "Iron-Defense";
+	_skillName[2] = "Aqua-Tail";
+	_skillName[3] = "Hydro-Pump";
+	_skillDscp[0] = "Basic-Attack.";
+	_skillDscp[1] = "Increase-Your-Defence!";
+	_skillDscp[2] = "Increase-Your-Attack&Cause-Some-Damage!";
+	_skillDscp[3] = "Lots-Of-Damage!!!!!!!!";
 	_pp[0] = 10;
 	_pp[1] = 10;
 	_pp[2] = 3;
@@ -834,14 +834,14 @@ Race<3>::Race() : PokemonBase(SPE)
 	{
 		_expCurve[i] = _expCurve[i - 1] + 5 * i;
 	}
-	_skillName[0] = "Thunder Shock";
-	_skillName[1] = "Double Team";
+	_skillName[0] = "Thunder-Shock";
+	_skillName[1] = "Double-Team";
 	_skillName[2] = "Discharge";
 	_skillName[3] = "Thunderbolt";
-	_skillDscp[0] = "Basic Attack.";
-	_skillDscp[1] = "Increase Your Speed!";
-	_skillDscp[2] = "Cause Some Damage!";
-	_skillDscp[3] = "Lots Of Damage!!!!!!!!";
+	_skillDscp[0] = "Basic-Attack.";
+	_skillDscp[1] = "Increase-Your-Speed!";
+	_skillDscp[2] = "Cause-Some-Damage!";
+	_skillDscp[3] = "Lots-Of-Damage!!!!!!!!";
 	_pp[0] = 5;
 	_pp[1] = 10;
 	_pp[2] = 5;
