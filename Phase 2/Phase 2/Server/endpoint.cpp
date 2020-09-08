@@ -2,7 +2,6 @@
 
 #include "endpoint.h"
 #include <iostream>
-// #include <mstcpip.h> // for socket keep_alive
 #include "mystringfunc.h"
 #include "server.h"
 
@@ -70,7 +69,7 @@ int Endpoint::start()
 	 * type: SOCK_STREAM or SOCK_DGRAM or SOCK_RAW
 	 * protocol: use IPPROTO_TCP for TCP/IP
 	*/
-	// cout << "Endpoint[" << playerID << "]: init socket...";
+
 	endpointSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (endpointSocket == INVALID_SOCKET)
 	{
